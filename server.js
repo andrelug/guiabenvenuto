@@ -1,4 +1,3 @@
-var newrelic = require('newrelic');
 var express = require('express')
     , http = require('http')
     , mongoose = require('mongoose')
@@ -56,9 +55,6 @@ var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
    app.use(errorHandler());
 }
-
-// New Relic
-app.locals.newrelic = newrelic;
 
 // routes ======================================================================
 require('./app/routes.js')(app, passport, mongoose); // load our routes and pass in our app and fully configured passport
