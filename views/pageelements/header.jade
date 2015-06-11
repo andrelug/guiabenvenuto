@@ -1,0 +1,90 @@
+<!--[if lte IE 8]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
+<![endif]-->
+
+div#preloader
+    div.sk-spinner.sk-spinner-wave
+        div.sk-rect1
+        div.sk-rect2
+        div.sk-rect3
+        div.sk-rect4
+        div.sk-rect5
+
+div.layer
+
+header
+    div#top_line
+        div.container
+            div.row
+                div.col-md-6.col-sm-6.col-xs-6
+                    i.icon-phone
+                    strong 31 8888-8888
+                
+                div.col-md-6.col-sm-6.com-xs.6
+                    ul#top_links
+                        li
+                            div.dropdown.dropdown-access
+                                a.dropdown-toggle#access_link(href="#", data-toggle="dropdown") Entrar
+                                div.dropdown-menu
+                                    div.row
+                                        div.col-xs-6
+                                            a.bt_facebook
+                                                i.icon-facebook
+                                                | Facebook
+                                        div.col-xs-6
+                                            a.bt_twitter
+                                                i.icon-twitter
+                                                | Twitter
+                                    div.login-or
+                                        hr.hr-or
+                                        span.span-or or
+                                    div.form-group
+                                        input.form-control#inputUsernameEmail(type="text", placeholder="Email")
+                                    div.form-group
+                                        input.form-control#inputPassword(type="password", placeholder="Senha")
+                                    a#forgot_pw(href="#") Esqueceu a senha?
+                                    input#Sign_in.button_drop(type="submit", value="Entrar")
+                                    input#Sign_up.button_drop.outline(type="submit", value="Registrar")
+
+                        li
+                            a#wishlist_link(href="#") Lista
+
+    div.container
+        div.row
+            div.col-md-3.col-sm-3.col-xs-3
+                div#logo
+                    a(href="/")
+                        img.logo_normal(src="/images/logo.png", width="160", height="34", alt="Guia Benvenuto", data-retina="true")
+                    a(href="/")
+                        img.logo_sticky(src="/images/logo_sticky.png", width="160", height="34", alt="Guia Benvenuto", data-retina="true")
+            nav.col-md-9.col-sm-9.col-xs-9
+                a.cmn-toggle-switch.cmn-toggle-switch__htx.open_close(href="javascript:void(0);")
+                    span Menu Mobile
+                div.main-menu
+                    div#header_menu
+                        img.logo_normal(src="/images/logo_sticky.png", width="160", height="34", alt="Guia Benvenuto", data-retina="true")
+                    a.open_close#close_in(href="#")
+                        i.icon_set_1_icon-77
+                    ul
+                        li.submenu
+                            a.show-submenu(href="javascript:void(0);") Início
+                                i.icon-down-open-mini
+                            ul
+                                li
+                                    a(href="#") Submenu
+                        li
+                            a(href="#") Menu normal
+
+                ul#top_tools
+                    li
+                        div.dropdown.dropdown-search
+                            a.dropdown-toggle(href="#", data-toggle="dropdown")
+                                i.icon-search
+                            div.dropdown-menu
+                                form
+                                    div.input-group
+                                        input.form-control(type="text", placeholder="Busca...")
+                                        span.input-group-btn
+                                            button.btn.btn-default(type="button", style="margin-left:0;")
+                                                i.icon-search
+                                            
