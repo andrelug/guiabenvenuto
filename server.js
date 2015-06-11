@@ -22,7 +22,7 @@ var app = express();
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
 
-var benvenutossessions = mongoose.createConnection(configDB.url);
+var benvenutossessions = mongoose.createConnection(configDB.url2);
 
 require('./config/passport')(passport); // pass passport for configuration
 
