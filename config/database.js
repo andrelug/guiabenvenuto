@@ -4,12 +4,10 @@ var express = require('express'),
 
 if('development' == app.get('env')) {
     module.exports = {
-        'url': 'mongodb://localhost/benvenuto',
-        'url2': 'mongodb://localhost/benvenutossessions'
+        'url': 'mongodb://localhost/benvenuto'
     }
 }else{
     module.exports = {
-        'url': process.env.CUSTOMCONNSTR_MONGOLAB_URI,
-        'url2': process.env.CUSTOMCONNSTR_MONGOLAB_URIA
+        'url': process.env.CUSTOMCONNSTR_MONGOLAB_URI
     }
 }
