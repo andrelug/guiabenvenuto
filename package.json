@@ -30,7 +30,7 @@
     "jade": "*",
     "method-override": "^2.2.0",
     "mkdirp": "^0.5.0",
-    "mongodb": "^2.1.0-alpha",
+    "mongodb": "~2.0",
     "mongoose": "^4.0.5",
     "morgan": "*",
     "multer": "^0.1.4",
