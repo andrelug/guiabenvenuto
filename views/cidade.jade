@@ -5,13 +5,86 @@ block content
 
     include pageelements/header
 
-    include pageelements/slider
+    include pageelements/headercidade
+
+    div.collapse#collapseMap
+        div#map.map
 
     div.container.margin_60
+        div.row
+            div.col-md-8#single_tour_desc
+                div#single_tour_feat
+                    ul
+                        li
+                            i.icon_set_1_icon-4
+                            | Museus
+                        li
+                            i.icon_set_1_icon-4
+                            | Museus
+                        li
+                            i.icon_set_1_icon-4
+                            | Museus
+                        li
+                            i.icon_set_1_icon-4
+                            | Museus
+                        li
+                            i.icon_set_1_icon-4
+                            | Museus
+                        li
+                            i.icon_set_1_icon-4
+                            | Museus
+                        li
+                            i.icon_set_1_icon-4
+                            | Museus
+
+                p.visible-sm.visible-xs
+                    a.btn_map(data-toggle="collapse", href="#collapseMap", aria-expanded="false", aria-controls="collapseMap") Ver no Mapa
+                
+            aside.col-md-4
+                p.hidden-sm.hidden-xs
+                    a.btn_map(data-toggle="collapse", href="#collapseMap", aria-expanded="false", aria-controls="collapseMap") Ver no Mapa
+
+        div.row
+            div.col-md-3
+                h3 Descrição
+            div.col-md-9
+                h4 Uma cidade Marota
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas. Morbi viverra nibh sem, et feugiat enim feugiat eget. Aliquam ultricies turpis vitae nisl laoreet, nec imperdiet eros fringilla. Praesent in rhoncus ligula. Donec venenatis, sapien sed bibendum molestie, velit nisi ultrices mauris, eget ullamcorper ex libero nec nisi. Donec pulvinar, purus nec maximus gravida, est elit vehicula eros, ac vulputate nibh sapien id nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+        div.row
+            div.col-md-3
+                h3 Conhecido por
+                hr
+                ul.list_ok
+                    li Bares
+                    li Ar limpo (#SQN)
+                    li Vida noturna
+                
+            div.col-md-9.margin_60
+                div.row
+                    div.col-md-6
+                        div.box_style_4
+                            i.icon_set_1_icon-82
+                            h4
+                                | Moradores 
+                                span amam 
+                                | porque
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas.
+
+                    div.col-md-6
+                        div.box_style_4
+                            i.icon_set_1_icon-19
+                            h4
+                                | Moradores 
+                                span reclamam 
+                                | porque
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas.
+
+    div.container
         div.main_title
-            h2 Cidades em 
+            h2 Bairros em 
                 span Destaque
-            p A Benvenuto preparou guias das principais cidades do país para você saber exatamente para onde está indo
+            p Belo Horizonte é uma cidade grande com muitos bairros. Qual deles é o ideal para você?
 
         div.row
             div.col-md-4.col-sm-6.wow.zoomIn(data-wow-delay="0.1s")
@@ -29,8 +102,8 @@ block content
 
                     div.tour_title
                         h3
-                            strong Belo 
-                            |Horizonte
+                            strong Santa 
+                            |Lúcia
                         div.rating
                             i.icon-smile.voted
                             i.icon-smile.voted
@@ -58,8 +131,8 @@ block content
 
                     div.tour_title
                         h3
-                            strong Belo 
-                            |Horizonte
+                            strong Santa 
+                            |Lúcia
                         div.rating
                             i.icon-smile.voted
                             i.icon-smile.voted
@@ -87,8 +160,8 @@ block content
 
                     div.tour_title
                         h3
-                            strong Belo 
-                            |Horizonte
+                            strong Santa 
+                            |Lúcia
                         div.rating
                             i.icon-smile.voted
                             i.icon-smile.voted
@@ -101,10 +174,41 @@ block content
                                 span.tooltip-content-flip
                                     span.tooltip-back Lista de Favoritos
 
-        p.text-center.nopadding
-            a.btn_1.medium(href="#")
-                i.icon-eye-7
-                | Ver todas as Cidades (30)
+    div.container.margin_60
+        div.main_title
+            h2 Boas 
+                span razões 
+                | para morar aqui
+        div.row
+            div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
+                div.feature
+                    i.icon_set_1_icon-30
+                    h3
+                        span +2 Milhões 
+                        | de pessoas
+                    p Uma cidade tão grande assim só pode ter muita coisa boa tbm! Blablabla
+            div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
+                div.feature
+                    i.icon_set_1_icon-26
+                    h3
+                        span Transporte 
+                        | público
+                    p Uma cidade tão grande assim só pode ter muita coisa boa tbm! Blablabla
+            div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
+                div.feature
+                    i.icon_set_1_icon-30
+                    h3
+                        span +2 Milhões 
+                        | de pessoas
+                    p Uma cidade tão grande assim só pode ter muita coisa boa tbm! Blablabla
+            div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
+                div.feature
+                    i.icon_set_1_icon-30
+                    h3
+                        span +2 Milhões 
+                        | de pessoas
+                    p Uma cidade tão grande assim só pode ter muita coisa boa tbm! Blablabla
+
 
     div.white_bg
         div.container.margin_60
@@ -167,75 +271,5 @@ block content
                                 i.icon_set_1_icon-3 
                                 | Divinópolis
                                 span.other_tours_price 6/10
-            div.banner.colored
-                h4 Compre ou alugue imóveis na Benvenuto 
-                    span sem intermediários
-                p Na plataforma Benvenuto, você pode também anunciar seu imóvel gratuitamente
-                a.btn_1.white(href="http://www.benvenuto.com.br") Acesse Aqui
-
-            div.row
-                div.col-md-3.col-sm-6.text-center
-                    p
-                        a(href="#")
-                            img.img-responsive(src="images/blog1.jpg")
-                    h4
-                        span Novas Tendências
-                        | para design de interiores em 2015
-                    p Para os designers de interiores, duas vezes por ano acontece o High Point Market...
-
-                div.col-md-3.col-sm-6.text-center
-                    p
-                        a(href="#")
-                            img.img-responsive(src="images/blog2.jpg")
-                    h4
-                        span Novas Tendências
-                        | para design de interiores em 2015
-                    p Para os designers de interiores, duas vezes por ano acontece o High Point Market...
-                div.col-md-3.col-sm-6.text-center
-                    p
-                        a(href="#")
-                            img.img-responsive(src="images/blog3.jpg")
-                    h4
-                        span Novas Tendências
-                        | para design de interiores em 2015
-                    p Para os designers de interiores, duas vezes por ano acontece o High Point Market...
-                div.col-md-3.col-sm-6.text-center
-                    p
-                        a(href="#")
-                            img.img-responsive(src="images/blog4.jpg")
-                    h4
-                        span 8 coisas
-                        | que você deve fazer antes de comprar um imóvel
-                    p Para os designers de interiores, duas vezes por ano acontece o High Point Market...
-
-    section.parallax-window(data-parallax="scroll", data-image-src="images/time.jpg", data-natural-width="1400", data-natural-height="470")
-        div.parallax-content-1.magnific
-            div
-                h3 CONHEÇA O GUIA BENVENUTO
-                p A Benvenuto agora oferece a todos uma experiência cativante para conhecer ainda mais os entornos de seu próximo lar. Conheça cada detalhe que faz uma cidade ou um bairro especial.
-                a.video(href="https://www.youtube.com/watch?v=LbKJD3RuIn4")
-                    i.icon-play-circled2-1
-
-    div.container.margin_60
-        div.row
-            div.col-md-8.col-sm-6
-                img.img-responsive.laptop(src="/images/laptop.png")
-            div.col-md-4.col-sm-6
-                h3
-                    span Anuncie seu imóvel 
-                    | na Benvenuto
-                p A Plataforma inovadora que permite a negociação direta de imóveis de maneira rápida, fácil e segura através de um design simples e acessível que auxilia o comprador e o vendedor a cada passo da negociação.
-                ul.list_order
-                    li
-                        span 1
-                        | Imóveis Cuidadosamente Selecionados
-                    li
-                        span 2
-                        | Negocie Diretamente
-                    li
-                        span 3
-                        | Muita Segurança
-            
-                            
-    
+                
     include pageelements/footer	

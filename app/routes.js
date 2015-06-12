@@ -32,6 +32,16 @@ module.exports = function (app, passport, mongoose) {
 
         });
 
+
+    app.get('/cidade', function (req, res) {
+        var user = req.user;
+        if (!user) {
+                res.render('cidade', { title: 'Guia de Cidades e Bairros Benvenuto' });
+            } else {
+                res.render('cidade', { title: 'Guia de Cidades e Bairros Benvenuto', user: user });
+            }
+    });
+
     app.get('/entrar', function (req, res) {
         var user = req.user;
 
@@ -59,57 +69,6 @@ module.exports = function (app, passport, mongoose) {
         }
     });
 
-    // CONTATOS
-    app.get('/contatos', function (req, res) {
-        var user = req.user;
-
-        if (!user || user.status != 'admin') {
-            res.redirect('/');
-        } else {
-            Users.find({ status: { $ne: 'admin'} }).exec(function (err, docs) {
-                for (i = 0; i < docs.length; i++) {
-                    var timeStamp = docs[i]._id.toString().substring(0, 8);
-                    var date = new Date(parseInt(timeStamp, 16) * 1000);
-                    docs[i].date = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-                }
-                res.render('contatos', { title: "Contatos", user: user, info: docs });
-            });
-        }
-
-    });
-
-
-    // ORCAMENTOS REVIEW
-    app.get('/orcamentos/:id', function (req, res) {
-        var user = req.user;
-
-        if (!user || user.status != 'admin') {
-            res.redirect('/');
-        } else {
-            Orcamento.findOne({ _id: req.params.id }).exec(function (err, docs) {
-                // console.log(docs);
-                getProducts(docs);
-                // console.log(docs);
-                res.render('orcamento', { title: "Orçamento Análise", user: user, info: docs });
-            });
-        }
-    });
-
-    // ORÇAMENTO DELETE
-    app.post('/deleteOrcamento', function (req, res) {
-        var user = req.user;
-        var id = req.body.id;
-
-        if (!user || user.status != 'admin') {
-            res.redirect('/');
-        } else {
-            Orcamento.remove({ _id: id }, function (err) {
-                if (err)
-                    throw err
-                res.send("OK");
-            });
-        }
-    });
 
     // PROFILE
     app.get('/perfil', function (req, res) {
@@ -287,7 +246,7 @@ module.exports = function (app, passport, mongoose) {
 
     });
 
-        // SALVAR NOVO ARTIGO
+    // SALVAR NOVO ARTIGO
     app.post('/novoArtigo/:id', function (req, res) {
         var user = req.user;
         var id = req.params.id;
@@ -406,143 +365,6 @@ module.exports = function (app, passport, mongoose) {
                     throw err
                 res.send("OK");
             });
-        }
-    });
-
-    // UPDATE PROFILE
-    app.post('/updateProfile', function (req, res) {
-        var user = req.user,
-            b = req.body;
-            console.log(b.linkedin)
-            if(b.linkedin == undefined){
-                b.linkedin = " "
-            }
-
-        if (!user || user.status == 'admin') {
-            Users.update({ _id: user.id }, { $set: {
-                'name.first': b.firstname,
-                'name.last': b.lastname,
-                email: b.email,
-                'localization.country': b.country,
-                'social.facebook.url': b.facebook,
-                'social.twitter.url': b.twitter,
-                'social.linkedin.url': b.linkedin,
-                bio: b.bio
-            }
-            }, function (err) {
-                if (err)
-                    throw err
-                res.redirect('/painel');
-            })
-        } else {
-
-        }
-    });
-
-    // CHANGE STATUS
-    app.post('/changeStatus', function (req, res) {
-        var user = req.user;
-        var status = req.body.status;
-        var id = req.body.id;
-
-        if (!user || user.status != 'admin') {
-            res.redirect('/');
-        } else {
-            Orcamento.update({ _id: id }, { $set: { status: status} }, function (err) {
-                if (err)
-                    throw err
-                res.send("OK");
-            });
-        }
-    });
-
-    // ORÇAMENTO
-    app.post('/orcamento', function (req, res) {
-        var user = req.user;
-        var str = req.body.str;
-        var itens = [];
-        var quantidade = [];
-
-        for (i = 0; i < str.length; i++) {
-            itens.push(str[i].item);
-            quantidade.push(str[i].number);
-        }
-
-        new Orcamento({
-            itens: itens,
-            numbers: quantidade,
-            nome: req.body.nome,
-            email: req.body.email,
-            cupom: req.body.cupon,
-            status: "Aberto"
-        }).save(function (err, docs) {
-            if (err)
-                console.log(err);
-            new Users({
-                status: 'Orcamento',
-                'name.loginName': func.randomString(req.body.nome),
-                'name.first': req.body.nome,
-                email: req.body.email,
-                orcamento: docs._id
-            }).save(function (err, docs) {
-                res.send("OK");
-            });
-        });
-
-    });
-
-    //SIGNUP EMAIL
-    app.post('/signupEmail', function (req, res) {
-        var form = req.body.email;
-
-        new Users({
-            status: "Lead",
-            'name.loginName': func.randomString(),
-            email: form
-        }).save(function (err, docs) {
-            if (err)
-                throw err
-            res.send('OK');
-        });
-    });
-
-    //SIGNUP EMAIL
-    app.post('/contact', function (req, res) {
-        var nome = req.body.name,
-            email = req.body.email,
-            message = req.body.message;
-
-        new Users({
-            status: "Info",
-            'name.loginName': func.string_to_slug(nome),
-            email: email,
-            'name.first': nome,
-            message: message
-        }).save(function (err, docs) {
-            if (err)
-                throw err
-            res.send("10");
-        });
-    });
-
-
-    // CUPONS
-    app.get('/cupons', function (req, res) {
-        var user = req.user;
-        var data = req.query.cupom;
-
-        if (data == "BeAll2014") {
-            res.send("60000");
-        } else if(data == "ONG2014"){
-            res.send("150000");
-        }else if(data == "SWYouth1000"){
-            res.send("100000");
-        }else if(data == "SWYouth2000"){
-            res.send("200000");
-        }else if(data == "SWYouth3000"){
-            res.send("300000");
-        }else {
-            res.send('0');
         }
     });
 
