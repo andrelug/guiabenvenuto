@@ -33,12 +33,21 @@ module.exports = function (app, passport, mongoose) {
         });
 
 
-    app.get('/cidade', function (req, res) {
+    app.get('/cidade/:cidade', function (req, res) {
         var user = req.user;
         if (!user) {
                 res.render('cidade', { title: 'Guia de Cidades e Bairros Benvenuto' });
             } else {
                 res.render('cidade', { title: 'Guia de Cidades e Bairros Benvenuto', user: user });
+            }
+    });
+
+    app.get('/bairro/:bairro', function (req, res) {
+        var user = req.user;
+        if (!user) {
+                res.render('bairro', { title: 'Guia de Cidades e Bairros Benvenuto' });
+            } else {
+                res.render('bairro', { title: 'Guia de Cidades e Bairros Benvenuto', user: user });
             }
     });
 

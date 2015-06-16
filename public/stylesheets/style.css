@@ -2841,7 +2841,7 @@ blockquote.styled{
 
 /** Img frame in general page **/   
 .img-responsive.styled{
-	margin-top:20px;
+	margin:20px auto 0;
 	border:5px solid#fff;
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
