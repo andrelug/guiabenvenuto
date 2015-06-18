@@ -30,7 +30,7 @@ if('development' == app.get('env')) {
 	    'facebookAuth' : {
 		    'clientID' 		: '1626434297573271', // your App ID
 		    'clientSecret' 	: '4dc6ae549cc27afdc0a567fd4df1e2c8', // your App Secret
-		    'callbackURL' 	: 'http://guia.benvenuto.com/auth/facebook/callback'
+		    'callbackURL' 	: 'http://guia.benvenuto.com.br/auth/facebook/callback'
 	    },
 
 	    'twitterAuth' : {
