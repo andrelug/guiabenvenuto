@@ -1,0 +1,60 @@
+extends partials/layout
+
+block content
+    
+
+    include pageelements/header
+
+    div(style="padding-top:120px;background-color:#373737")
+    div.white_bg
+        div.container.margin_60
+            div.main_title
+                h2 Painel 
+                    span Guia Benvenuto 
+                    | de Cidades e Bairros
+                p Aqui colocamos mais bairros e cidades!
+            div.row
+                div.col-md-12
+                    a.btn_1.outline(href="/novaCidade", style="margin-right:10px;") Nova Cidade
+                    a.btn_1(href="/novoBairro") Novo Bairro
+            hr
+    div.container.margin_60
+        div.row
+            div.col-md-12
+                h2 Últimos Bairros Adicionados
+
+                table.table.table-stripped
+                    thead
+                        tr
+                            th Bairro
+                            th Cidade
+                            th Adicionado por
+                            th Data Adicionada
+                    tbody
+                        tr
+                            td Santa Lúcia
+                            td Belo Horizonte
+                            td André Lucas
+                            td 16/06/2015
+
+        hr
+        div.row
+            div.col-md-12
+                h2 Últimas Cidades Adicionados
+
+                table.table.table-stripped
+                    thead
+                        tr
+                            th Cidade
+                            th Adicionado por
+                            th Data Adicionada
+                    tbody
+                        tr
+                            td Belo Horizonte
+                            td André Lucas
+                            td 16/06/2015
+                
+                
+
+
+    include pageelements/footer	

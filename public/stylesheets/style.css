@@ -3248,3 +3248,7 @@ font-weight:400;
 .input-group input{
 	height:34px;
 }
+.tag{
+    margin-left: 5px;
+    margin-bottom: 5px;
+}

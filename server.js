@@ -16,6 +16,8 @@ var express = require('express')
     , morgan = require('morgan')
     , path = require('path');
 
+    var multer = require('multer');
+
 var app = express();
 
 // configuration ===============================================================
@@ -33,6 +35,7 @@ process.env.TMPDIR = './public/tmp';
     app.use(morgan('dev'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(multer({ dest: './public/uploads/'}));
     app.use(cookieParser());
     app.use(methodOverride());
     app.use(session({ resave: true, saveUninitialized: true, store: new MongoStore({
@@ -47,8 +50,8 @@ process.env.TMPDIR = './public/tmp';
 
     app.enable('trust proxy');
     
-    var multer = require('multer');
-    app.use(multer({ dest: './public/tmp/'}));
+    
+    
 
 var env = process.env.NODE_ENV || 'development';
 

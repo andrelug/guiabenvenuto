@@ -36,44 +36,85 @@ module.exports = function (app, passport, mongoose) {
     app.get('/cidade/:cidade', function (req, res) {
         var user = req.user;
         if (!user) {
-                res.render('cidade', { title: 'Guia de Cidades e Bairros Benvenuto' });
-            } else {
-                res.render('cidade', { title: 'Guia de Cidades e Bairros Benvenuto', user: user });
-            }
+            res.render('cidade', { title: 'Guia de Cidades e Bairros Benvenuto' });
+        } else {
+            City.findOne({ slug: req.params.cidade }, function (err, docs) {
+                if (err)
+                    throw err
+
+
+                res.render('cidade', { title: docs.nomeCidade + 'Guia de Cidades e Bairros Benvenuto', user: user, docs: docs });
+            });
+
+        }
     });
 
     app.get('/bairro/:bairro', function (req, res) {
         var user = req.user;
         if (!user) {
-                res.render('bairro', { title: 'Guia de Cidades e Bairros Benvenuto' });
-            } else {
-                res.render('bairro', { title: 'Guia de Cidades e Bairros Benvenuto', user: user });
-            }
-    });
-
-    app.get('/entrar', function (req, res) {
-        var user = req.user;
-
-        if (!user) {
-            res.render('login', { title: "Bonsaits Login" });
+            res.render('bairro', { title: 'Guia de Cidades e Bairros Benvenuto' });
         } else {
-            res.redirect('/painel');
+            res.render('bairro', { title: 'Guia de Cidades e Bairros Benvenuto', user: user });
         }
     });
 
     app.get('/painel', function (req, res) {
         var user = req.user;
         if (!user) {
-            res.redirect('/entrar')
+            res.redirect('/')
         } else {
 
-            Orcamento.find({}).sort({ _id: -1 }).exec(function (err, docs) {
-                for (i = 0; i < docs.length; i++) {
-                    var timeStamp = docs[i]._id.toString().substring(0, 8);
-                    var date = new Date(parseInt(timeStamp, 16) * 1000);
-                    docs[i].date = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-                }
-                res.render('painel', { title: "Painel Bonsaits", user: user, orc: docs });
+            res.render('painel', { title: "Painel Guia Benvenuto", user: user });
+        }
+    });
+
+    app.get('/novaCidade', function (req, res) {
+        var user = req.user
+        if (!user) {
+            res.redirect('/')
+        } else {
+            res.render('novaCidade', { title: "Painel Guia Benvenuto", user: user });
+        }
+    });
+
+    app.post('/novaCidade', function (req, res) {
+        var user = req.user;
+        var uploads = req.files;
+        var content = req.body;
+
+        var tags = content.tags.split(',');
+
+        var razoes = [{ razao: content.razao1, iconerazao: content.iconerazao1, descricaorazao: content.descricaorazao1 }, { razao: content.razao2, iconerazao: content.iconerazao2, descricaorazao: content.descricaorazao2 }, { razao: content.razao3, iconerazao: content.iconerazao3, descricaorazao: content.descricaorazao3 }, { razao: content.razao4, iconerazao: content.iconerazao4, descricaorazao: content.descricaorazao4}];
+
+        var conhecida = content.conhecidaPor.split(',');
+
+        var carac = content.caracteristicas.split(',');
+
+        if (!user) {
+            res.redirect('/')
+        } else {
+            console.log(uploads.fotoDestaque.name)
+            new City({
+                nomeCidade: content.nomeCidade,
+                sigla: content.sigla,
+                headline: content.headline,
+                slug: func.string_to_slug(content.nomeCidade),
+                tags: tags,
+                caracteristicas: carac,
+                conhecidaPor: content.conhecidaPor,
+                descricao: content.descricao,
+                amam: content.amam,
+                reclamam: content.reclamam,
+                frase1: content.frase1,
+                razoes: razoes,
+                fotoDestaque: "/uploads/" + uploads.fotoDestaque.name,
+                imagem1: "/uploads/" + uploads.imagem1.name,
+                imagem2: "/uploads/" + uploads.imagem2.name,
+                imagem3: "/uploads/" + uploads.imagem3.name
+            }).save(function (err, docs) {
+                if (err)
+                    throw err
+                res.redirect('/cidade/' + docs.slug);
             });
         }
     });

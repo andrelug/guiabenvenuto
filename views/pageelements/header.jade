@@ -2,13 +2,7 @@
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
 
-div#preloader
-    div.sk-spinner.sk-spinner-wave
-        div.sk-rect1
-        div.sk-rect2
-        div.sk-rect3
-        div.sk-rect4
-        div.sk-rect5
+
 
 div.layer
 
@@ -24,27 +18,30 @@ header
                     ul#top_links
                         li
                             div.dropdown.dropdown-access
-                                a.dropdown-toggle#access_link(href="#", data-toggle="dropdown") Entrar
-                                div.dropdown-menu
-                                    div.row
-                                        div.col-xs-6
-                                            a.bt_facebook(href="/auth/facebook")
-                                                i.icon-facebook
-                                                | Facebook
-                                        div.col-xs-6
-                                            a.bt_twitter(href="/auth/twitter")
-                                                i.icon-twitter
-                                                | Twitter
-                                    div.login-or
-                                        hr.hr-or
-                                        span.span-or ou
-                                    div.form-group
-                                        input.form-control#inputUsernameEmail(type="text", placeholder="Email")
-                                    div.form-group
-                                        input.form-control#inputPassword(type="password", placeholder="Senha")
-                                    a#forgot_pw(href="#") Esqueceu a senha?
-                                    input#Sign_in.button_drop(type="submit", value="Entrar")
-                                    input#Sign_up.button_drop.outline(type="submit", value="Registrar")
+                                if(!user)
+                                    a.dropdown-toggle#access_link(href="#", data-toggle="dropdown") Entrar
+                                    div.dropdown-menu
+                                        div.row
+                                            div.col-xs-6
+                                                a.bt_facebook(href="/auth/facebook")
+                                                    i.icon-facebook
+                                                    | Facebook
+                                            div.col-xs-6
+                                                a.bt_twitter(href="/auth/twitter")
+                                                    i.icon-twitter
+                                                    | Twitter
+                                        div.login-or
+                                            hr.hr-or
+                                            span.span-or ou
+                                        div.form-group
+                                            input.form-control#inputUsernameEmail(type="text", placeholder="Email")
+                                        div.form-group
+                                            input.form-control#inputPassword(type="password", placeholder="Senha")
+                                        a#forgot_pw(href="#") Esqueceu a senha?
+                                        input#Sign_in.button_drop(type="submit", value="Entrar")
+                                        input#Sign_up.button_drop.outline(type="submit", value="Registrar")
+                                else
+                                    a(href="/painel") Olá #{user.name.first}
 
                         li
                             a#wishlist_link(href="#") Lista
@@ -56,7 +53,7 @@ header
                     a(href="/")
                         img.logo_normal(src="/images/logo.png", width="160", height="34", alt="Guia Benvenuto", data-retina="true")
                     a(href="/")
-                        img.logo_sticky(src="/images/logo_sticky.png", width="160", height="34", alt="Guia Benvenuto", data-retina="true")
+                        img.logo_sticky(src="/images/logo.png", width="160", height="34", alt="Guia Benvenuto", data-retina="true")
             nav.col-md-9.col-sm-9.col-xs-9
                 a.cmn-toggle-switch.cmn-toggle-switch__htx.open_close(href="javascript:void(0);")
                     span Menu Mobile
