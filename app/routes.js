@@ -42,8 +42,12 @@ module.exports = function (app, passport, mongoose) {
                 if (err)
                     throw err
 
+                if (docs != undefined) {
+                    res.render('cidade', { title: docs.nomeCidade + 'Guia de Cidades e Bairros Benvenuto', user: user, docs: docs });
+                } else {
+                    res.redirect('/');
+                }
 
-                res.render('cidade', { title: docs.nomeCidade + 'Guia de Cidades e Bairros Benvenuto', user: user, docs: docs });
             });
 
         }
@@ -87,8 +91,8 @@ module.exports = function (app, passport, mongoose) {
         var razoes = [{ razao: content.razao1, iconerazao: content.iconerazao1, descricaorazao: content.descricaorazao1 }, { razao: content.razao2, iconerazao: content.iconerazao2, descricaorazao: content.descricaorazao2 }, { razao: content.razao3, iconerazao: content.iconerazao3, descricaorazao: content.descricaorazao3 }, { razao: content.razao4, iconerazao: content.iconerazao4, descricaorazao: content.descricaorazao4}];
 
         var conhecida = content.conhecidaPor.split(',');
-
-        var carac = content.caracteristicas.split(',');
+        console.log(content.caracteristicas)
+        var carac = content.caracteristicas;
 
         if (!user) {
             res.redirect('/')
