@@ -1,0 +1,378 @@
+extends partials/layout
+
+block content
+    
+
+    include pageelements/header
+
+    div(style="padding-top:120px;background-color:#373737")
+
+    div.white_bg
+        div.container.margin_60
+            div.main_title
+                h2 Adicionar 
+                    span Cidade
+                p Siga os passos abaixo!
+
+            div.row
+                div.col-md-12
+                    form(action="/novoBairro", method="post", enctype="multipart/form-data")
+                        div.form_title
+                            h3
+                                strong 1
+                                | Informações básicas
+                                p Preencha todos os campos
+                        div.step
+                            div.row
+                                div.col-md-12.col-sm-12
+                                    div.form-group
+                                        label Nome do Bairro
+                                        input.form-control(type="text", name="nomeBairro", placeholder="Nome do Bairro")
+                                div.col-md-4.col-sm-12
+                                    div.form-group
+                                        label Nome da Cidade
+                                        input.form-control(type="text", name="nomeCidade", placeholder="Nome da Cidade")
+                                div.col-md-2.col-sm-6
+                                    div.form-group
+                                        label Sigla do Estado
+                                        input.form-control(type="text", name="sigla", placeholder="ex: MG")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Headline
+                                        input.form-control(type="text", name="headline", placeholder="Headline")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Tags - Evite mais de 2
+                                        input.form-control(type="text", name="tags", placeholder="Tags (separado por vírgulas)")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Foto em Destaque Tamanho: 1920px de largura
+                                        input.form-control(type="file", name="fotoDestaque", placeholder="Foto em Destaque (1920px de largura)")
+
+                        div.form_title
+                            h3
+                                strong 2
+                                | Descrições
+                                p Preencha todos os campos
+
+                        div.step
+                            div.row
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Características
+                                        select.form-control#carac(name="caracteristicas", placeholder="Características", multiple)
+                                            option Museus
+                                            option Acessibilidade
+                                            option Turismo
+                                            option Trasporte Público
+                                            option Centro Religioso
+                                            option Parques
+                                            option Restaurantes
+                                            option Beleza Natural
+                                            option Centro Comercial
+                                            option Vida Noturna
+                                            option Centro Histórico
+                                            option Fácil de Caminhar
+                                            option Tranquilo
+                                            option Praias
+                                            option Escolas Perto
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Conhecido Por
+                                        input.form-control(type="text", name="conhecidaPor", placeholder="Conhecido por (tópicos separado por vírgulas)")
+
+                                div.col-md-12.col-sm-12
+                                    div.form-group
+                                        label Descrição (1 parágrafo)
+                                        textarea.form-control(name="descricao", placeholder="Descrição")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Moradores amam porqueMoradores amam porqueMoradores amam porque
+                                        textarea.form-control(name="amam", placeholder="Frase de efeito")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Moradores reclamam porque
+                                        textarea.form-control(name="reclamam", placeholder="Frase de efeito")
+
+
+                        div.form_title
+                            h3
+                                strong 3
+                                | Conteúdo
+                                p Preencha todos os campos
+
+                        div.step
+                            div.row
+                                div.col-md-12.col-sm-12
+                                    div.form-group
+                                        label Curta frase para cinco fotos seguintes
+                                        input.form-control(type="text", name="frase1", placeholder="Curta Frase")
+                                div.col-md-12.text-center
+                                    p Todas as imagens com a mesma altura
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label 1° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem1", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label 2° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem2", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label 3° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem3", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label 4° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem4", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label 5° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem5", placeholder="Tamanho: 800px de largura")
+
+
+
+                                
+
+                        div.form_title
+                            h3
+                                strong 4
+                                | Anúncios em Destaque
+                                p Preencha todos os campos
+
+                        div.step
+                            div.row
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 1 - Link Benvenuto
+                                        input.form-control(type="text", name="linkanuncio1", placeholder="Link para o anúncio 1")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 2 - Link Benvenuto
+                                        input.form-control(type="text", name="linkanuncio2", placeholder="Link para o anúncio 2")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 3 - Link Benvenuto
+                                        input.form-control(type="text", name="linkanuncio3", placeholder="Link para o anúncio 3")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 1 - Link da imagem em destaque
+                                        input.form-control(type="text", name="imagemanuncio1", placeholder="Link para o anúncio 1")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 2 - Link da imagem em destaque
+                                        input.form-control(type="text", name="imagemanuncio2", placeholder="Link para o anúncio 2")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 3 - Link da imagem em destaque
+                                        input.form-control(type="text", name="imagemanuncio3", placeholder="Link para o anúncio 3")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 1 - Tipo do imóvel
+                                        input.form-control(type="text", name="tipoanuncio1", placeholder="Link para o anúncio 1")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 2 - Tipo do imóvel
+                                        input.form-control(type="text", name="tipoanuncio2", placeholder="Link para o anúncio 2")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label Anúncio 3 - Tipo do imóvel
+                                        input.form-control(type="text", name="tipoanuncio3", placeholder="Link para o anúncio 3")
+
+
+                        div.form_title
+                            h3
+                                strong 5
+                                | Conteúdo
+                                p Preencha todos os campos
+
+                        div.step
+                            div.row
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Curta frase para três fotos seguintes
+                                        input.form-control(type="text", name="frase2", placeholder="Curta Frase")
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label 1° Imagem Tamanho: 1600px de largura
+                                        input.form-control(type="file", name="imagem6", placeholder="Tamanho: 1600px de largura")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label 2° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem7", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label 3° Imagem Tamanho: 800px de largura e mesma altura da 2° Imagem
+                                        input.form-control(type="file", name="imagem8", placeholder="Tamanho: 800px de largura")
+
+                        div.form_title
+                            h3
+                                strong 6
+                                | Razões para Morar
+                                p Preencha todos os campos (Texto para colocar nos ícones <a href="http://www.ansonika.com/citytours/icon_pack_2.html">AQUI</a>)
+
+                        div.step
+                            div.row
+                                div.col-md-4.col-sm-6
+                                    div.form-group
+                                        label Razão 1
+                                        input.form-control(type="text", name="razao1", placeholder="Razão 1")
+                                div.col-md-4
+                                    div.form-group
+                                        label Icone Razão 1
+                                        input.form-control(type="text", name="iconerazao1", placeholder="Ícone Razão 1")
+                                div.col-md-4
+                                    div.form-group
+                                        label Descrição Razão 1
+                                        input.form-control(type="text", name="descricaorazao1", placeholder="Descrição Razão 1")
+
+                                div.col-md-4.col-sm-6
+                                    div.form-group
+                                        label Razão 2
+                                        input.form-control(type="text", name="razao2", placeholder="Razão 2")
+                                div.col-md-4
+                                    div.form-group
+                                        label Icone Razão 2
+                                        input.form-control(type="text", name="iconerazao2", placeholder="Ícone Razão 2")
+                                div.col-md-4
+                                    div.form-group
+                                        label Descrição Razão 2
+                                        input.form-control(type="text", name="descricaorazao2", placeholder="Descrição Razão 2")
+
+                                div.col-md-4.col-sm-6
+                                    div.form-group
+                                        label Razão 3
+                                        input.form-control(type="text", name="razao3", placeholder="Razão 3")
+                                div.col-md-4
+                                    div.form-group
+                                        label Icone Razão 3
+                                        input.form-control(type="text", name="iconerazao3", placeholder="Ícone Razão 3")
+                                div.col-md-4
+                                    div.form-group
+                                        label Descrição Razão 3
+                                        input.form-control(type="text", name="descricaorazao3", placeholder="Descrição Razão 3")
+
+                                div.col-md-4.col-sm-6
+                                    div.form-group
+                                        label Razão 4
+                                        input.form-control(type="text", name="razao4", placeholder="Razão 4")
+                                div.col-md-4
+                                    div.form-group
+                                        label Icone Razão 4
+                                        input.form-control(type="text", name="iconerazao4", placeholder="Ícone Razão 4")
+                                div.col-md-4
+                                    div.form-group
+                                        label Descrição Razão 4
+                                        input.form-control(type="text", name="descricaorazao4", placeholder="Descrição Razão 4")
+
+                        div.form_title
+                            h3
+                                strong 7
+                                | Conteúdo
+                                p Preencha todos os campos
+
+                        div.step
+                            div.row
+                                div.col-md-12.col-sm-12
+                                    div.form-group
+                                        label Curta frase para três fotos seguintes
+                                        input.form-control(type="text", name="frase3", placeholder="Curta Frase")
+                                div.col-md-12.text-center
+                                    p Todas as imagens com a mesma altura
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label 1° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem9", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label 2° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem10", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-4.col-sm-4
+                                    div.form-group
+                                        label 3° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem11", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-12.col-sm-12
+                                    div.form-group
+                                        label Curta frase para três fotos seguintes
+                                        input.form-control(type="text", name="frase4", placeholder="Curta Frase")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label 4° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem12", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label 5° Imagem Tamanho: 800px de largura
+                                        input.form-control(type="file", name="imagem13", placeholder="Tamanho: 800px de largura")
+
+                                div.col-md-12.col-sm-12
+                                    div.form-group
+                                        label 1° Imagem Tamanho: 1600px de largura e pode ter altura maior do que os anteriores
+                                        input.form-control(type="file", name="imagem14", placeholder="Tamanho: 1600px de largura")
+
+                        div.form_title
+                            h3
+                                strong 8
+                                | O que falam sobre morar aqui
+                                p Preencha todos os campos
+
+                        div.step
+                            div.row
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Nome Primeiro depoimento
+                                        input.form-control(type="text", placeholder="Nome de quem deu o depoimento", name="nomedepoimento1")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Nome Segundo depoimento
+                                        input.form-control(type="text", placeholder="Nome de quem deu o depoimento", name="nomedepoimento2")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Imagem Primeiro Depoimento
+                                        input.form-control(type="file", placeholder="Imagem de quem deu o depoimento", name="imagemdepoimento1")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Imagem Segundo Depoimento
+                                        input.form-control(type="file", placeholder="Imagem de quem deu o depoimento", name="imagemdepoimento2")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Texto Primeiro Depoimento
+                                        input.form-control(type="text", placeholder="Imagem de quem deu o depoimento", name="textodepoimento1")
+
+                                div.col-md-6.col-sm-6
+                                    div.form-group
+                                        label Texto Segundo Depoimento
+                                        input.form-control(type="text", placeholder="Imagem de quem deu o depoimento", name="textodepoimento2")
+
+
+                        div#policy
+                            h4 Confira antes de enviar
+                            input.btn_1.green.medium(type="submit", value="Enviar")
+

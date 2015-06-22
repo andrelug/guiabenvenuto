@@ -57,9 +57,8 @@ block content
                 h3 Conhecido por
                 hr
                 ul.list_ok
-                    li Bares
-                    li Ar limpo (#SQN)
-                    li Vida noturna
+                    for conhecida in docs.conhecidaPor
+                        li #{conhecida}
                 
             div.col-md-9.margin_60
                 div.row
@@ -101,7 +100,7 @@ block content
             div.main_title
                 h2 Bairros em 
                     span Destaque
-                p Belo Horizonte é uma cidade grande com muitos bairros. Qual deles é o ideal para você?
+                p #{docs.nomeCidade} é uma cidade grande com muitos bairros. Qual deles é o ideal para você?
 
             div.row
                 div.col-md-4.col-sm-6.wow.zoomIn(data-wow-delay="0.1s")
@@ -203,7 +202,7 @@ block content
                         <i class="#{features.iconerazao}"></i>
                         h3
                             span #{features.razao} 
-                            | de pessoas
+                            | 
                         p #{features.descricaorazao} 
 
     if(docs.outrosBairros != undefined)

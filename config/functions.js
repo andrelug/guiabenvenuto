@@ -51,6 +51,10 @@ module.exports = {
             }
         }
         return newArray;
+    },
+    getNthWord: function(string, n){
+        var words = string.split(" ");
+        return words[n-1];
     }
     
 }

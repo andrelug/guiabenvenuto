@@ -9,7 +9,7 @@ block content
 
     div.collapse#collapseMap
         div#map.map
-
+            iframe(width="600", frameborder="0", style="border:0;height:450px;margin-top:510px;", src="https://www.google.com/maps/embed/v1/place?q=#{docs.nomeBairro.replace(' ', '%20')}%2C%20#{docs.nomeCidade.replace(' ', '%20')}-%20#{docs.sigla}%2C%20Brasil&zoom=14&key=AIzaSyDMhw6VD8Yp0CekQoezYdl3JQkz0agJv1g")
     div.container.margin_60
         div.row
             div.col-md-8#single_tour_desc
@@ -48,17 +48,16 @@ block content
             div.col-md-3
                 h3 Como é esse bairro
             div.col-md-9
-                h4 Uma bairro Maroto
-                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas. Morbi viverra nibh sem, et feugiat enim feugiat eget. Aliquam ultricies turpis vitae nisl laoreet, nec imperdiet eros fringilla. Praesent in rhoncus ligula. Donec venenatis, sapien sed bibendum molestie, velit nisi ultrices mauris, eget ullamcorper ex libero nec nisi. Donec pulvinar, purus nec maximus gravida, est elit vehicula eros, ac vulputate nibh sapien id nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                h4 #{docs.headline}
+                p #{docs.descricao}
 
         div.row
             div.col-md-3
                 h3 Conhecido por
                 hr
                 ul.list_ok
-                    li Bares
-                    li Ar limpo (#SQN)
-                    li Vida noturna
+                    for conhecida in docs.conhecidaPor
+                        li #{conhecida}
                 
             div.col-md-9.margin_60
                 div.row
@@ -69,7 +68,7 @@ block content
                                 | Moradores 
                                 span amam 
                                 | porque
-                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas.
+                            p #{docs.amam}
 
                     div.col-md-6
                         div.box_style_4
@@ -78,137 +77,69 @@ block content
                                 | Moradores 
                                 span reclamam 
                                 | porque
-                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas.
+                            p #{docs.reclamam}
 
     div.white_bg
         div.container.margin_60
             div.main_title
-                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas. Morbi viverra nibh sem, et feugiat enim feugiat eget.
+                p #{docs.frase1}
             div.row.magnific-gallery.add_bottom_60
                 div.col-sm-4.text-center
-                    a(href="/images/eiffel.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/eiffel.jpg")
+                    a(href="#{docs.imagem1}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem1}")
                 div.col-sm-4.text-center
-                    a(href="/images/eiffel.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/eiffel.jpg")
+                    a(href="#{docs.imagem2}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem2}")
                 div.col-sm-4.text-center
-                    a(href="/images/eiffel.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/eiffel.jpg")
+                    a(href="#{docs.imagem3}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem3}")
                 div.col-sm-6
-                    a(href="/images/notredame.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/notredame.jpg")
+                    a(href="#{docs.imagem4}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem4}")
                 div.col-sm-6
-                    a(href="/images/notredame.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/notredame.jpg")
+                    a(href="#{docs.imagem5}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem5}")
 
     div.container.margin_60
         div.main_title
             h2 Anúncios em 
                 span Destaque
-            p Belo Horizonte é uma cidade grande com muitos bairros. Qual deles é o ideal para você?
+            p #{docs.nomeBairro} é um bairro muito bom. Veja alguns anúncios na Benvenuto para ele?
 
         div.row
-            div.col-md-4.col-sm-6.wow.zoomIn(data-wow-delay="0.1s")
-                div.tour_container
-                    div.img_container
-                        a(href="#")
-                            img.img-responsive(src="/images/004.jpg")
-                            div.ribbon.top_rated
-                            div.short_info
-                                i.icon_set_1_icon-24
-                                | Parques
-                                span.price
-                                    sup 9
-                                    | /10
+            for anuncio in docs.anuncios
+                div.col-md-4.col-sm-6.wow.zoomIn(data-wow-delay="0.1s")
+                    div.tour_container
+                        div.img_container
+                            a(href="#{anuncio.link}")
+                                img.img-responsive(src="#{anuncio.imagem}")
+                                div.short_info
+                                    i.icon_set_1_icon-24
+                                    | #{anuncio.tipo}
 
-                    div.tour_title
-                        h3
-                            strong Santa 
-                            |Lúcia
-                        div.rating
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile
-                            small (10)
-                        div.wishlist
-                            a.tooltip_flip.tooltip-effect-1(href="javascript:void(0);") +
-                                span.tooltip-content-flip
-                                    span.tooltip-back Lista de Favoritos
-
-            div.col-md-4.col-sm-6.wow.zoomIn(data-wow-delay="0.1s")
-                div.tour_container
-                    div.img_container
-                        a(href="#")
-                            img.img-responsive(src="/images/004.jpg")
-                            div.ribbon.top_rated
-                            div.short_info
-                                i.icon_set_1_icon-24
-                                | Parques
-                                span.price
-                                    sup 9
-                                    | /10
-
-                    div.tour_title
-                        h3
-                            strong Santa 
-                            |Lúcia
-                        div.rating
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile
-                            small (10)
-                        div.wishlist
-                            a.tooltip_flip.tooltip-effect-1(href="javascript:void(0);") +
-                                span.tooltip-content-flip
-                                    span.tooltip-back Lista de Favoritos
-
-            div.col-md-4.col-sm-6.wow.zoomIn(data-wow-delay="0.1s")
-                div.tour_container
-                    div.img_container
-                        a(href="#")
-                            img.img-responsive(src="/images/004.jpg")
-                            div.ribbon.top_rated
-                            div.short_info
-                                i.icon_set_1_icon-24
-                                | Parques
-                                span.price
-                                    sup 9
-                                    | /10
-
-                    div.tour_title
-                        h3
-                            strong Santa 
-                            |Lúcia
-                        div.rating
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile.voted
-                            i.icon-smile
-                            small (10)
-                        div.wishlist
-                            a.tooltip_flip.tooltip-effect-1(href="javascript:void(0);") +
-                                span.tooltip-content-flip
-                                    span.tooltip-back Lista de Favoritos
+                        div.tour_title
+                            h3
+                                strong #{docs.bairro1word} 
+                                |#{docs.bairro2word}
+                            div.wishlist
+                                a.tooltip_flip.tooltip-effect-1(href="javascript:void(0);") +
+                                    span.tooltip-content-flip
+                                        span.tooltip-back Lista de Favoritos
 
     div.white_bg
         div.container.margin_60
             div.main_title
-                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas. Morbi viverra nibh sem, et feugiat enim feugiat eget.
+                p #{docs.frase2}
             div.row.magnific-gallery.add_bottom_60
                 div.col-sm-12.text-center
-                    a(href="/images/bg_login.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/bg_login.jpg")
+                    a(href="#{docs.imagem6}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem6}")
                 div.col-sm-6
-                    a(href="/images/notredame.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/notredame.jpg")
+                    a(href="#{docs.imagem7}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem7}")
                 div.col-sm-6
-                    a(href="/images/notredame.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/notredame.jpg")
+                    a(href="#{docs.imagem8}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem8}")
                 
                     
                     
@@ -219,61 +150,41 @@ block content
                 span razões 
                 | para morar aqui
         div.row
-            div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
-                div.feature
-                    i.icon_set_1_icon-30
-                    h3
-                        span +2 Milhões 
-                        | de pessoas
-                    p Uma cidade tão grande assim só pode ter muita coisa boa tbm! Blablabla
-            div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
-                div.feature
-                    i.icon_set_1_icon-26
-                    h3
-                        span Transporte 
-                        | público
-                    p Uma cidade tão grande assim só pode ter muita coisa boa tbm! Blablabla
-            div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
-                div.feature
-                    i.icon_set_1_icon-30
-                    h3
-                        span +2 Milhões 
-                        | de pessoas
-                    p Uma cidade tão grande assim só pode ter muita coisa boa tbm! Blablabla
-            div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
-                div.feature
-                    i.icon_set_1_icon-30
-                    h3
-                        span +2 Milhões 
-                        | de pessoas
-                    p Uma cidade tão grande assim só pode ter muita coisa boa tbm! Blablabla
+            for features in docs.razoes
+                div.col-md-6.wow.fadeIn(data-wow-delay="0.1s")
+                    div.feature
+                        <i class="#{features.iconerazao}"></i>
+                        h3
+                            span #{features.razao} 
+                            | 
+                        p #{features.descricaorazao} 
 
 
     div.white_bg
         div.container.margin_60
             div.main_title
-                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas. Morbi viverra nibh sem, et feugiat enim feugiat eget.
+                p #{docs.frase3}
             div.row.magnific-gallery.add_bottom_60
                 div.col-sm-4.text-center
-                    a(href="/images/eiffel.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/eiffel.jpg")
+                    a(href="#{docs.imagem9}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem9}")
                 div.col-sm-4.text-center
-                    a(href="/images/eiffel.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/eiffel.jpg")
+                    a(href="#{docs.imagem10}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem10}")
                 div.col-sm-4.text-center
-                    a(href="/images/eiffel.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/eiffel.jpg")
+                    a(href="#{docs.imagem11}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem11}")
                 div.text-center.col-sm-12
-                    p(style="margin-top:20px;") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed ante eu metus maximus egestas. Morbi viverra nibh sem, et feugiat enim feugiat eget.
+                    p(style="margin-top:20px;") #{docs.frase4}
                 div.col-sm-12.text-center
-                    a(href="/images/bg_login.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/bg_login.jpg")
+                    a(href="#{docs.imagem12}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem12}")
                 div.col-sm-6
-                    a(href="/images/notredame.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/notredame.jpg")
+                    a(href="#{docs.imagem13", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem13}")
                 div.col-sm-6
-                    a(href="/images/notredame.jpg", title="titulo da foto")
-                        img.img-responsive.styled(src="/images/notredame.jpg")
+                    a(href="#{docs.imagem14}", title="titulo da foto")
+                        img.img-responsive.styled(src="#{docs.imagem14}")
 
     div.container.margin_60
         div.main_title
@@ -281,15 +192,11 @@ block content
                 span falam 
                 | sobre morar aqui
         div.row
-            div.col-md-6
-                div.review_strip
-                    img.img-circle(src="/images/avatar2.jpg")
-                    h4 Rafael Milagre
-                    p "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-            div.col-md-6
-                div.review_strip
-                    img.img-circle(src="/images/avatar2.jpg")
-                    h4 Rafael Milagre
-                    p "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in"
+            for review in docs.depoimentos
+                div.col-md-6
+                    div.review_strip
+                        img.img-circle(src="#{review.imagem}")
+                        h4 #{review.nome}
+                        p #{review.texto}
 
     include pageelements/footer	

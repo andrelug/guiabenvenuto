@@ -1,27 +1,19 @@
-section.parallax-window(data-parallax="scroll", data-image-src="/images/blog1.jpg", data-natural-width="1400", data-natural-height="470")
+section.parallax-window(data-parallax="scroll", data-image-src="#{docs.fotoDestaque}", data-natural-width="1400", data-natural-height="470")
     div.parallax-content-2
         div.container
             div.row
                 div.col-md-8.col-sm-8
-                    h1 Belo Horizonte
-                    span Um lugar muito maroto e divertido
-                    span.rating
-                        i.icon-smile.voted
-                        i.icon-smile.voted
-                        i.icon-smile.voted
-                        i.icon-smile.voted
-                        i.icon-smile
-                        small (50)
+                    h1 #{docs.nomeBairro}
+                    span #{docs.headline}
                 div.col-md-4.col-sm-4
                     div#price_single_main
-                        span
-                            sup 9
-                            | /10
+                        for tag in docs.tags
+                            a(href="/tags/#{tag}").btn_1.tag.green #{tag}
 div#position
     div.container
         ul
             li
                 a(href="#") Início
             li
-                a(href="#") Cidades
-            li Belo Horizonte
+                a(href="/cidade/#{docs.slugCidade}") #{docs.nomeCidade}
+            li #{docs.nomeBairro}

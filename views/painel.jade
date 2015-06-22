@@ -30,12 +30,15 @@ block content
                             th Cidade
                             th Adicionado por
                             th Data Adicionada
+                            th Status
                     tbody
                         tr
-                            td Santa Lúcia
-                            td Belo Horizonte
-                            td André Lucas
-                            td 16/06/2015
+                            for neib in bairros
+                                td #{neib.nomeBairro}
+                                td #{neib.nomeCidade}
+                                td #{neib.publicadoPor}
+                                td #{neib.date}
+                                td #{neib.status}
 
         hr
         div.row
@@ -48,11 +51,14 @@ block content
                             th Cidade
                             th Adicionado por
                             th Data Adicionada
+                            th Status
                     tbody
                         tr
-                            td Belo Horizonte
-                            td André Lucas
-                            td 16/06/2015
+                            for city in cidades
+                                td #{city.nomeCidade}
+                                td #{city.publicadoPor}
+                                td #{city.date}
+                                td #{city.status}
                 
                 
 

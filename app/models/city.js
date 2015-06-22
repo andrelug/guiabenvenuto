@@ -6,6 +6,7 @@ var CitySchema = new mongoose.Schema({
     sigla: String,
     headline: String,
     slug: String,
+    publicadoPor: String,
     tags: [String],
     caracteristicas: [String],
     conhecidaPor: [String],
