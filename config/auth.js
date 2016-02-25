@@ -8,7 +8,7 @@ if('development' == app.get('env')) {
 	    'facebookAuth' : {
 		    'clientID' 		: '1626434297573271', // your App ID
 		    'clientSecret' 	: '4dc6ae549cc27afdc0a567fd4df1e2c8', // your App Secret
-		    'callbackURL' 	: 'http://localhost:46066/auth/facebook/callback'
+		    'callbackURL' 	: 'http://localhost:3000/auth/facebook/callback'
 	    },
 
 	    'twitterAuth' : {
@@ -30,7 +30,7 @@ if('development' == app.get('env')) {
 	    'facebookAuth' : {
 		    'clientID' 		: '1626434297573271', // your App ID
 		    'clientSecret' 	: '4dc6ae549cc27afdc0a567fd4df1e2c8', // your App Secret
-		    'callbackURL' 	: 'http://guia.benvenuto.com.br/auth/facebook/callback'
+		    'callbackURL' 	: 'http://guia.azurewebsites.net/auth/facebook/callback'
 	    },
 
 	    'twitterAuth' : {
